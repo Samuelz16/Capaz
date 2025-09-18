@@ -1,0 +1,682 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+/* Reseteo básico de estilos para todos los elementos */
+* {
+  margin: 0; /* Elimina el margen por defecto */
+  padding: 0; /* Elimina el padding por defecto */
+  box-sizing: border-box; /* Asegura que el padding y borde no afecten el tamaño total del elemento */
+  font-family: "Montserrat", sans-serif; /* Establece la fuente principal para todo el sitio */
+}
+
+/* ==========================================================================
+   Estilos del Cuerpo (Body)
+   ========================================================================== */
+
+body {
+  min-height: 100vh; /* Altura mínima igual a la altura de la ventana */
+  background: #f5f0f8; /* Color de fondo de respaldo */
+  background-image: url("fondo.png"); /* Imagen de fondo */
+  background-size: cover; /* La imagen cubre todo el contenedor */
+  background-position: center; /* Centra la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed; /* La imagen de fondo se queda fija al hacer scroll */
+  position: relative; /* Necesario para el pseudo-elemento ::before */
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+/* Capa semitransparente sobre el fondo para mejorar la legibilidad del texto */
+body::before {
+  content: "";
+  position: fixed; /* Fijo en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3); /* Blanco con 30% de opacidad */
+  z-index: -1; /* Se coloca detrás de todo el contenido */
+}
+
+/* ==========================================================================
+   Encabezado (Header)
+   ========================================================================== */
+
+.header {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  justify-content: space-between; /* Distribuye el espacio entre los elementos */
+  padding: 15px 30px; /* Espaciado interno */
+  background: rgba(245, 240, 248, 0.9); /* Fondo semitransparente */
+  backdrop-filter: blur(12px); /* Efecto de desenfoque para el fondo */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* Sombra suave */
+  position: relative;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  z-index: 10; /* Se asegura que el header esté sobre otros elementos */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilos del logo */
+.logo {
+  height: 80px;
+  width: auto;
+  margin-right: 20px;
+  z-index: 2;
+  object-fit: contain; /* Asegura que la imagen se escale correctamente sin distorsión */
+  display: block;
+  transform: scale(2.3); /* Aumenta el tamaño del logo */
+}
+
+/* ==========================================================================
+   Menú de Navegación
+   ========================================================================== */
+
+.nav-menu {
+  display: flex;
+  list-style: none; /* Quita los puntos de la lista */
+  gap: 25px; /* Espacio entre los elementos del menú */
+  z-index: 2;
+}
+
+.nav-menu li {
+  margin: 0;
+}
+
+.nav-menu a {
+  display: block;
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  color: #5a1f3e; /* Color del texto */
+  font-weight: 600; /* Grosor de la fuente */
+  font-size: 16px;
+  padding: 12px 20px;
+  border-radius: 8px; /* Bordes redondeados */
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.35s ease; /* Transición suave para efectos hover */
+  box-shadow: 0 2px 8px rgba(90, 31, 62, 0.08);
+}
+
+/* Efecto al pasar el ratón sobre los enlaces del menú */
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-3px); /* Mueve el enlace hacia arriba */
+  box-shadow: 0 6px 12px rgba(90, 31, 62, 0.12);
+  color: #800040; /* Cambia el color del texto */
+}
+
+/* ==========================================================================
+   Barra de Búsqueda
+   ========================================================================== */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  z-index: 2;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 18px;
+  border: none;
+  outline: none; /* Quita el borde al hacer foco */
+  font-size: 15px;
+  border-radius: 20px 0 0 20px;
+  background: white;
+  font-family: "Montserrat", sans-serif;
+  color: #5a1f3e;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background: #800040;
+  color: white;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.35s ease;
+}
+
+.search-button:hover {
+  background: #5a1f3e;
+}
+
+/* ==========================================================================
+   Contenido Principal
+   ========================================================================== */
+
+.main-content {
+  padding: 80px 30px 30px;
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centra el contenido */
+  position: relative;
+  z-index: 1;
+}
+
+/* Título de la sección */
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #5a1f3e;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+/* Línea decorativa debajo del título de la sección */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd9e3, #e6d7f0, #d4c5e8);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Grid de Productos
+   ========================================================================== */
+
+.products-grid {
+  display: grid;
+  /* Crea columnas automáticas que tienen un mínimo de 350px */
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 40px; /* Espacio entre las tarjetas de producto */
+  padding: 20px 0;
+}
+
+/* Tarjeta de producto individual */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden; /* Oculta cualquier contenido que se salga de la tarjeta */
+  box-shadow: 0 8px 20px rgba(90, 31, 62, 0.08);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border: 1px solid rgba(220, 200, 220, 0.3);
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-10px); /* Eleva la tarjeta al pasar el ratón */
+  box-shadow: 0 15px 30px rgba(90, 31, 62, 0.12);
+}
+
+/* Imagen del producto */
+.product-img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain; /* La imagen se ajusta sin distorsionarse */
+  background: white;
+  transition: transform 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen */
+}
+
+/* Título del producto */
+.product-title {
+  padding: 0 20px 15px;
+  text-align: center;
+  color: #5a1f3e;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  flex-grow: 1; /* Permite que el título ocupe el espacio restante */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Botones
+   ========================================================================== */
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  margin: 0 20px 20px;
+  background-color: #800040;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #5a1f3e;
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   Carrito de Compras
+   ========================================================================== */
+
+.carrito-container {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 800px;
+  box-shadow: 0 8px 20px rgba(90, 31, 62, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.carrito-container h2 {
+  color: #5a1f3e;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Contenedor de los items del carrito con scroll */
+.carrito-items {
+  max-height: 300px;
+  overflow-y: auto; /* Agrega una barra de scroll si los items exceden la altura máxima */
+  margin-bottom: 20px;
+}
+
+/* Producto individual en el carrito */
+.producto-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #e6d7f0; /* Línea divisoria */
+}
+
+.producto-carrito span {
+  color: #5a1f3e;
+  font-weight: 500;
+}
+
+.producto-carrito button {
+  background: #e74c3c; /* Color rojo para el botón de eliminar */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Total del carrito */
+.carrito-total {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: right;
+  margin: 20px 0;
+  color: #800040;
+}
+
+/* Botón para añadir al carrito */
+.add-to-cart-btn {
+  background: #800040;
+  color: white;
+}
+
+.add-to-cart-btn:hover {
+  background: #5a1f3e;
+}
+
+/* ==========================================================================
+   Estilos para la página de Detalle de Producto
+   ========================================================================== */
+
+.product-detail-section {
+  padding: 60px 30px;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  background: rgba(255 255 255 / 0.9);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(90, 31, 62, 0.12);
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  color: #5a1f3e;
+}
+
+/* Slider de imágenes del producto */
+.product-image-slider {
+  flex: 1 1 450px; /* Flex-grow, flex-shrink, flex-basis */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(90, 31, 62, 0.1);
+  background: white;
+}
+
+.main-product-image {
+  width: 100%;
+  height: 450px;
+  object-fit: contain;
+  background: #fff;
+  display: block;
+}
+
+/* Botones de navegación del slider */
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 15px;
+  pointer-events: none; /* Permite hacer clic a través de la capa de navegación */
+}
+
+.slider-btn {
+  pointer-events: all; /* Hace que los botones sean clickeables */
+  background: rgba(128, 0, 64, 0.75);
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none; /* Evita que el texto del botón sea seleccionado */
+}
+
+.slider-btn:hover {
+  background: #5a1f3e;
+}
+
+/* Contenedor de miniaturas */
+.thumbnail-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto; /* Scroll horizontal si hay muchas miniaturas */
+  padding-bottom: 5px;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
+  flex-shrink: 0; /* Evita que las miniaturas se encojan */
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: #800040; /* Resalta la miniatura activa o al pasar el ratón */
+  opacity: 1;
+}
+
+/* Información del producto */
+.product-info {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+}
+
+.product-title-detail {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #5a1f3e;
+}
+
+.product-description {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #6b4a6e;
+  min-height: 90px;
+}
+
+.product-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #800040;
+}
+
+/* Opciones del producto (talla, cantidad) */
+.product-options {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.size-selector label,
+.quantity-selector label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-right: 10px;
+  color: #5a1f3e;
+}
+
+.size-select,
+.quantity-input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1.5px solid #e6d7f0;
+  font-size: 1rem;
+  color: #5a1f3e;
+  background: white;
+  min-width: 80px;
+  transition: border-color 0.3s ease;
+}
+
+.size-select:focus,
+.quantity-input:focus {
+  outline: none;
+  border-color: #800040;
+}
+
+.quantity-input {
+  width: 70px;
+  text-align: center;
+}
+
+/* Botones de acción (Añadir al carrito, Comprar ahora) */
+.product-actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.product-actions .btn {
+  flex: 1 1 180px;
+  padding: 16px 0;
+  font-size: 1.15rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  user-select: none;
+}
+
+.add-to-cart-btn {
+  background-color: #800040;
+  color: white;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #5a1f3e;
+}
+
+.buy-now-btn {
+  background-color: #5a1f3e;
+  color: white;
+}
+
+.buy-now-btn:hover {
+  background-color: #800040;
+}
+
+/* ==========================================================================
+   Diseño Responsivo (Media Queries)
+   ========================================================================== */
+
+/* Para tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .product-card {
+    height: 450px;
+  }
+
+  .product-img {
+    height: 300px;
+  }
+  
+  .product-detail-section {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .product-image-slider,
+  .product-info {
+    max-width: 100%;
+    flex: none;
+  }
+
+  .main-product-image {
+    height: 350px;
+  }
+
+  .thumbnail-container {
+    max-width: 100%;
+  }
+}
+ /* Estilos específicos para el formulario de contacto */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #5a1f3e;
+        }
+        .contact-form .form-group {
+            margin-bottom: 25px;
+        }
+        .contact-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .contact-form .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1.5px solid #e6d7f0;
+            font-size: 1rem;
+            color: #5a1f3e;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+        .contact-form .form-control:focus {
+            outline: none;
+            border-color: #800040;
+        }
+        .contact-form textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        .contact-form .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background-color: #800040;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form .submit-btn:hover {
+            background-color: #5a1f3e;
+        }
+/* Para móviles */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 15px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .product-card {
+    height: 400px;
+  }
+
+  .product-img {
+    height: 250px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .main-content {
+    padding: 60px 15px 15px;
+  }
+  
+  .product-title-detail {
+    font-size: 2rem;
+  }
+
+  .product-price {
+    font-size: 1.8rem;
+  }
+
+  .product-actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .product-options {
+    flex-direction: column;
+    gap: 15px;
+  }
+    
+       
+    
+}
